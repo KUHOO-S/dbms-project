@@ -3,11 +3,14 @@ const MongoClient = mongo.MongoClient;
 
 const url = 'mongodb://localhost:27017';
 var dbfiles;
+ 
 MongoClient.connect(url, { useNewUrlParser: true },{useUnifiedTopology: true}, (err, client) => {
 
     if (err) throw err;
 
     const db = client.db("ProjectDB");
+    async function AddOne()
+{ 
 
     await db.collection('Customer').insertOne({
 
@@ -19,5 +22,4 @@ MongoClient.connect(url, { useNewUrlParser: true },{useUnifiedTopology: true}, (
         "hotel_id":32316
     });
     console.log("lets hope its odne");
-});
-
+}});
