@@ -24,7 +24,7 @@
  }
  .parallax {
     background-image: url("plx.jpg");
-    min-height: 700px;  
+    min-height: 1000px;  
     background-attachment: fixed;
     background-position: center;
     background-repeat: no-repeat;
@@ -34,8 +34,8 @@
 #formpt
 {
 position: absolute;
-top:350px;
-left:450px;
+top:450px;
+left:500px;
 flex-wrap: wrap;
 background-color:#80ffaa;
     opacity:0.8;
@@ -124,8 +124,14 @@ opacity: 1;
 }
 #svn{
   position:absolute;
-  top:300px;
-
+  top:250px;
+  left:30px; 
+  font-family: milea;
+  color: #e1ff00;
+  font-size:30px;
+  opacity: 1.4;
+  width:100%;
+  padding:10px;
 }
 </style>
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js">
@@ -234,7 +240,7 @@ opacity: 1;
 
 <div id="svn">
   <h1>Hello {{firstname}}!</h1>
-   <p>Thank you for booking!<br>An amazing journey awaits you!</p>
+   <p><span style="width:40px;"></span>Thank you for booking! An amazing journey awaits you! </span></p>
 </div></div>
 
 </div><!-- for parallax-->
