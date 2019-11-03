@@ -4,8 +4,7 @@ var app=express();
 app.set('view engine','ejs');
 var urlencoded=bodyParser.urlencoded({extended:false});
 
-
-app.use(express.static('./public'));
+app.use('/assets',express.static('assets'));
 
 
  app.get('/home',function(req,res)
