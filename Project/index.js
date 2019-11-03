@@ -1,25 +1,29 @@
-const mongo= require('mongodb');
-const MongoClient = mongo.MongoClient;
+var express= require('express');
+var bodyParser=require('body-parser');
+var app=express();
+app.set('view engine','ejs');
 
-const url = 'mongodb://localhost:27017';
-var dbfiles;
- 
-MongoClient.connect(url, { useNewUrlParser: true },{useUnifiedTopology: true}, (err, client) => {
+var urlencoded=bodyParser.urlencoded({extended:false});
+app.use('/assets',express.static('assets'));
 
-    if (err) throw err;
+ app.get('/contact',function(req,res)
+ {  console.log(req.query);
+     res.render('contact',{qs: req.query});
+ });
 
-    const db = client.db("ProjectDB");
-    async function AddOne()
-{ 
+ app.post('/contact',urlencoded,function(req,res)
+ {  console.log(req.body);
+     res.render('contact',{qs: req.query});
+ });
 
-    await db.collection('Customer').insertOne({
+app.get('/:nameji',function(req,res){
+//res.sendFile(__dirname+'/hi.html');
+var data={
+    age:70,
+    height:5,
+}
+res.render('index',{nameji:req.params.nameji,data:data});
+});
 
-        "customer_id":32345,
-        "name":"TKuhoo",
-        "mobile":7943237972,
-        "email":"tkuhr@gmail.com",
-        "login_id":72148,
-        "hotel_id":32316
-    });
-    console.log("lets hope its odne");
-}});
+
+app.listen(3000);
