@@ -4,18 +4,18 @@ var name=document.signup.username.value;
 var email=document.signup.email.value;
 var phno=document.signup.mobile.value;
 
-if(name="" || )
+if(name=="")
 {
   alert("Do not leave name blank");
 }
 
-else if(email.match( /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/))
+else if(!email.match( /^([A-Za-z0-9_\-\.])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z]{2,4})$/))
 {
-  alert("Enter Valid Email");
+    alert("Enter Valid Email");
 }
 else if(phno.length!=10)
 {
-  alert("enter valid phone number");
+  alert("Enter a valid phone number");
 }
 else
 {
