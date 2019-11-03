@@ -1,0 +1,182 @@
+<html>
+<head>
+<title>Utopia.. Just a Click Away!</title>
+<style>
+ #heading
+ {
+ 	font-family:milea;
+ 	position:absolute;
+ 	top:50px;
+ 	left:200px;
+ 	font-size:60px;
+ 	color:#05e3a8;
+ }
+
+ #subh
+ {
+   font-family: monospace;
+   color: #21b3db;
+   position: absolute;
+   top:150px;
+   left:200px;
+   font-size:40px;
+ }
+ .parallax { 
+    background-image: url("plx.jpg"); 
+    min-height: 700px;  
+    background-attachment: fixed; 
+    background-position: center; 
+    background-repeat: no-repeat; 
+    background-size: cover; 
+} 
+
+#formpt
+{
+	position: absolute;
+	top:350px;
+	left:450px;
+	flex-wrap: wrap;
+	background-color:#80ffaa;
+    opacity:0.8; 
+    padding:20px;
+}
+
+td
+{
+	font-family: monospace;
+}
+}
+</style>
+
+<script>
+function formValidation()
+{
+var uid = document.registration.userid;
+var passid = document.registration.passid;
+var uname = document.registration.username;
+var uemail = document.registration.email; 
+var uphno = document.registration.mobile;
+if(userid_validation(uid,5,12)) {
+if(passid_validation(passid,7,12)) {
+if(allLetter(uname))
+{
+if(ValidateEmail(uemail))
+{ 
+	if(phonenumber(uphno))
+	{
+return true;
+} } } } }
+return false; }
+
+function userid_validation(uid,mx,my)
+{
+var uid_len = uid.value.length;
+if (uid_len == 0 || uid_len >= my || uid_len < mx) {
+alert("User Id should not be empty / length be between "+mx+" to "+
+my);
+uid.focus();
+return false;
+}
+return true;
+}
+
+function passid_validation(passid,mx,my)
+{
+var passid_len = passid.value.length;
+if (passid_len == 0 ||passid_len >= my || passid_len < mx)
+{
+alert("Password should not be empty / length be between "+mx+" to "+my);
+passid.focus();
+return false;
+}
+return true;
+}
+
+function allLetter(uname)
+{
+var letters = /^[A-Za-z]+$/;
+if(uname.value.match(letters))
+{
+return true;
+}
+else {
+alert('Username must have alphabet characters only');
+uname.focus();
+return false; } }
+
+functionValidateEmail(uemail)
+{
+var mailformat = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-
+9]{2,4})+$/;
+if(uemail.value.match(mailformat))
+{
+return true; }
+else {
+alert("You have entered an invalid email address!");
+uemail.focus();
+return false; } }
+
+function phonenumber(uphno)
+{
+  var phoneno = /^\d{10}$/;
+  if((uphno.value.match(phoneno))
+        {
+      return true;
+        }
+      else
+        {
+        alert("Invalid  phone Number!");
+        return false;
+        }
+}
+
+
+</script>
+
+</head>
+
+<body>
+
+<img src="egesdshr.png" align="left" alt="utopia logo" width="200px">
+<h1 id="heading"> Utopia Hotels </h1>
+
+<h3 id="subh"> Paradise.. Just a Click Away! </h3>
+
+<div class=parallax>
+<div id="formpt">
+<form name='Sign Up' onSubmit="return formValidation();">
+<h1 style="text-align:center">Sign Up</h1>
+<br>
+<form name='registration' onSubmit="return formValidation();">
+
+<table align="center">
+
+<tr>
+<td><label for="userid">User ID:</label></td>
+<td><input type="text" name="userid" size="30"></td></tr>
+<tr><td></td></tr>
+<tr><td></td></tr>
+<tr>
+<td><label for="passid">Password:</label></td>
+<td><input type="password" name="passid" size="30"></td></tr>
+<tr><td></td></tr>
+<tr><td></td></tr>
+<tr>
+<td><label for="username">Name:</label></td> <td><input type="text" name="username" size="50"></td></tr>
+<tr><td></td></tr>
+<tr><td></td></tr>
+<tr>
+<td><label for="email">Email:</label></td> <td><input type="text" name="email" size="50"></td></tr>
+<tr><td></td></tr>
+<tr><td></td></tr>
+<tr>
+	<td> <label for="mobile"> Mobile: </label></td> <td> <input type="text" name="mobile" size="30"> </td>
+</tr>
+<tr> <td> </td> </tr>
+<tr> <td> </td> </tr>
+<tr><td colspan="2" align="center">  <input type="submit" name="submit" value="Submit" > </td></tr></table>
+
+</form> 
+</div>
+</div> <!-- for parallax-->
+</body> </html>
