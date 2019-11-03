@@ -136,8 +136,8 @@ opacity: 1;
 </style>
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js">
 </script>
-<script src="/public/assets/form.js">
-</script>
+<!--<script src="/public/assets/form.js">
+</script> -->
 </head>
 
 <body>
@@ -247,5 +247,32 @@ opacity: 1;
 </div><!-- for parallax-->
 
 </body>
+
+<script>
+function formValidation()
+{
+var name=document.signup.username.value;
+var email=document.signup.email.value;
+var phno=document.signup.mobile.value;
+
+if(name=="")
+{
+  alert("Do not leave name blank");
+}
+
+else if(!email.match( /^([A-Za-z0-9_\-\.])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z]{2,4})$/))
+{
+    alert("Enter Valid Email");
+}
+else if(phno.length!=10)
+{
+  alert("Enter a valid phone number");
+}
+else
+{
+  return true;
+}
+}
+</script>
 
 </html>
