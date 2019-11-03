@@ -6,7 +6,7 @@ app.set('view engine','ejs');
 var urlencoded=bodyParser.urlencoded({extended:false});
 app.use('/assets',express.static('assets'));
 
- app.get('/contact',function(req,res)
+ app.get('/home',function(req,res)
  {  console.log(req.query);
      res.render('contact',{qs: req.query});
  });
