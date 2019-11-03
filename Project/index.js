@@ -1,21 +1,28 @@
-var MongoClient = require('mongodb').MongoClient;
-var url = "mongodb://localhost:27017/GravitasDB";
+const mongo=require('mongodb');
+const MongoClient = mongo.MongoClient;
 
-    MongoClient.connect(url, function (err, db) {
-        if (err) throw err;
-        var Hdb = db.db("Hotel Management");
-        //data=Hdb.collection("aleya").find().toArray();
-        db.collection('aleya').find({}).toArray().then((docs) => {
+const url = 'mongodb://localhost:27017';
+var dbfiles;
+MongoClient.connect(url, { useNewUrlParser: true },{useUnifiedTopology: true}, (err, client) => {
 
-            console.log(docs);
+    if (err) throw err;
 
-        }).catch((err) => {
+    const db = client.db("Hotel_Management");
 
-            console.log(err);
-        }).finally(() => {
+    db.collection('aleya').find({}).toArray().then((docs) => {
 
-            client.close();
-        });
-        //console.log(data);
-        console.log("hit");
+        console.log(docs);
+        console.log("kookoko");
+        dbfiles=docs;
+    }).catch((err) => {
+
+        console.log(err);
+    }).finally(() => {
+
+        console.log(dbfiles);
+        console.log("h")
+
+        client.close();
     });
+});
+
