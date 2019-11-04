@@ -16,17 +16,19 @@ app.use('/assets',express.static('assets'));
      res.render('homepage');
  });
 
+
  app.get('/book',function(req,res)
  {
-     res.render('bookingpage');
+    res.render('bookingpage');
+    
  });
  app.post('/book',urlencoded,function(req,res)
  {  console.log(req.body);
      data=req.body;
-    data=JSON.stringify(data);
+     data=JSON.stringify(data);
 
      console.log(data);
-data=JSON.parse(data);
+     data=JSON.parse(data);
 
      MongoClient.connect(url, function(err, db) {
        if (err) throw err;
