@@ -32,7 +32,7 @@ data=JSON.parse(data);
        if (err) throw err;
        var dbo = db.db("ProjectDB");
        var myobj = data;
-       dbo.collection("Customer").insertOne(myobj, function(err, res) {
+       dbo.collection("CustomerBookingDetails").insertOne(myobj, function(err, res) {
          if (err) throw err;
          console.log("1 document inserted");
          db.close();
