@@ -40,6 +40,7 @@ app.use('/assets',express.static('assets'));
          db.close();
        });
      });
+     res.render('booking-success',{data:req.body});
 
  });
 

@@ -15,11 +15,46 @@
     {
     	x.style.opacity=1;
     }
-
-
 </script>
-
-
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"> </script>
+<script>
+  $(document).ready(function(){
+    $(".jqe1").mouseover(function(){
+    $(this).animate({
+      height:'100px',
+      width:'120px'});
+  });
+  $(".jqe2").mouseover(function(){
+    $(this).animate({
+      height:'100px',
+      width:'120px'});
+  });
+  $(".jqe3").mouseover(function(){
+    $(this).animate({
+      height:'100px',
+      width:'120px'
+    });
+    });
+  $(".jqe1").mouseleave(function(){
+    $(this).animate({
+      height:'80px',
+      width:'100px'});
+  });
+  $(".jqe2").mouseleave(function(){
+    $(this).animate({
+      height:'80px',
+      width:'100px'});
+  });
+  $(".jqe3").mouseleave(function(){
+    $(this).animate({
+      height:'80px',
+      width:'100px'
+    });
+    });
+ 
+});
+  
+</script>
 <style type="text/css">
 
 
@@ -535,7 +570,7 @@ top:30px;
 
 <div  id="to">
   <div id="at">
-    <img src="./assets/friend.jpg" width="100px" height="80px">
+    <img src="./assets/friend.jpg" width="100px" height="80px" class="jqe1">
     <br>
     <br>
     <span class="font-banner">
@@ -543,7 +578,7 @@ top:30px;
     </span>
     </div>
     <div id="bt">
-    <img src="./assets/bf.jpg" width="100px" height="80px">
+    <img src="./assets/bf.jpg" width="100px" height="80px" class="jqe2">
     <br>
     <br>
     <span class="font-banner">
@@ -551,7 +586,7 @@ top:30px;
     </span>
     </div>
     <div id="ct">
-    <img src="./assets/rec.jpg" width="100px" height="80px">
+    <img src="./assets/rec.jpg" width="100px" height="80px" class="jqe3">
     <br>
     <br>
     <span class="font-banner">
@@ -612,9 +647,9 @@ top:30px;
 
   		<tr>
   			<td width="500px" style="font-family:Helvetica;"> <img src="./assets/crab.jpg"> <br> Grilled Crab with Onion <br> Price:₹3000.00 </td>
-  			<td width="500px"> <img src="./assets/fish.jpg"> <br> Fish Glazed in Steak Sauce <br> Price:₹2000.00 </td>
-  			<td width="500px"> <img src="./assets/beef.jpg" width="225px" height="150px"> <br> Beef Conoliere <br> Price:₹4000.00 </td>
-  			<td width="500px"> <img src="./assets/chic.jpg" height="150px" width="232px"> <br>  Chicken Plate <br> Price:₹6000.00 </td>
+  			<td width="500px" style="font-family:Helvetica;" > <img src="./assets/fish.jpg"> <br> Fish Glazed in Steak Sauce <br> Price:₹2000.00 </td>
+  			<td width="500px" style="font-family:Helvetica;"> <img src="./assets/beef.jpg" width="225px" height="150px"> <br> Beef Conoliere <br> Price:₹4000.00 </td>
+  			<td width="500px" style="font-family:Helvetica;"> <img src="./assets/chic.jpg" height="150px" width="232px"> <br>  Chicken Plate <br> Price:₹6000.00 </td>
   		</tr>
 
   	<tr>
