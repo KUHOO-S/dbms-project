@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<link rel="shortcut icon" type="image/x-icon" href="https://static.codepen.io/assets/favicon/favicon-aec34940fbc1a6e787974dcd360f2c6b63348d4b1f4e06c77743096d55480f33.ico" />
+<link rel="mask-icon" type="" href="https://static.codepen.io/assets/favicon/logo-pin-8f3771b1072e3c38bd662872f6b673a722f4b3ca2421637d5596661b4e2132cc.svg" color="#111" />
+<title>CodePen - Login Form in One Button</title>
+<link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Montserrat&amp;display=swap'>
+<link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css'>
+<style>
+  html, body {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  background: #34495e;
+}
+html > .desc, body > .desc {
+  font-family: 'Montserrat';
+  font-size: 0.8em;
+  font-weight: bold;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  position: absolute;
+  width: 100%;
+  top: 20%;
+  text-align: center;
+  color: white;
+}
+html > .note, body > .note {
+  font-family: 'Montserrat';
+  font-size: 11px;
+  position: absolute;
+  bottom: 10px;
+  left: 0;
+  width: 100%;
+  text-align: center;
+  color: white;
+}
+html > .note > a, body > .note > a {
+  font-family: 'Montserrat';
+  font-size: 11px;
+  color: white;
+}
+
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.login-form {
+  position: relative;
+  width: 350px;
+  height: 60px;
+  border-radius: 40px;
+}
+.login-form .login-form__border {
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  width: 100%;
+  height: 100%;
+  background: #3d3d3d;
+  border-radius: 40px;
+  border: 2px solid white;
+}
+.login-form .login-form__inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  border-radius: 40px;
+  overflow: hidden;
+}
+.login-form .login-form_inner .login-form_start {
+  font-family: "Montserrat";
+  font-size: 15.6px;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: transparent;
+  border: none;
+  outline: none;
+  color: white;
+  cursor: pointer;
+  z-index: 5;
+}
+.login-form .login-form_inner .login-form_icons {
+  position: absolute;
+  left: -2px;
+  top: -2px;
+  width: 60px;
+  height: 60px;
+  z-index: 10;
+}
+.login-form .login-form_inner .login-formicons .login-form_icon {
+  position: absolute;
+  top: -1px;
+  left: -1px;
+  width: 100%;
+  height: 100%;
+  background: #3d3d3d;
+  border: 2px solid white;
+  border-radius: 50%;
+  text-align: center;
+  color: white;
+}
+.login-form .login-form_inner .login-formicons .login-form_icon i {
+  font-size: 24px;
+  margin-top: 18px;
+  color: white;
+}
+.login-form .login-form_inner .login-formicons .login-formicon_email {
+  z-index: 2;
+}
+.login-form .login-form_inner .login-formicons .login-formicon_password {
+  left: 5px;
+  border-color: #6f6f6f;
+  z-index: 1;
+}
+.login-form .login-form_inner .login-form_submit {
+  position: absolute;
+  right: 9.75px;
+  top: 10.5px;
+  width: 39px;
+  height: 39px;
+  background: #4b4b4b;
+  border-radius: 50%;
+  text-align: center;
+  color: white;
+  cursor: pointer;
+  z-index: 5;
+}
+.login-form .login-form_inner .login-form_submit i {
+  font-size: 27.3px;
+  margin-top: 5.85px;
+  margin-left: 5.85px;
+  color: white;
+}
+.login-form .login-form_inner .login-form_placeholder {
+  position: absolute;
+  top: 7px;
+  left: 75px;
+}
+.login-form .login-form_inner .login-form_placeholder p {
+  font-family: "Montserrat";
+  font-size: 10.8px;
+  letter-spacing: 1px;
+  margin: 0;
+  color: #777777;
+}
+.login-form .login-form__inner input {
+  font-family: "Montserrat";
+  font-size: 15.6px;
+  letter-spacing: 1px;
+  position: absolute;
+  bottom: 10.5px;
+  left: 75px;
+  width: 300.5px;
+  background: transparent;
+  border: none;
+  outline: none;
+  color: white;
+}
+
+.login-form {
+  transition: all 0.2s ease-in;
+}
+.login-form .login-form__border {
+  transition: all 0.4s ease-in;
+}
+.login-form .login-form__start {
+  transition: all 0.1s ease-in;
+}
+.login-form .login-form_icon_email {
+  transform: translateX(-125%);
+  transition: all 0.4s ease-out;
+}
+.login-form .login-form_icon_email i {
+  transform: rotate(-45deg);
+  transition: all 0.8s cubic-bezier(0.64, 0.57, 0.67, 1.53);
+}
+.login-form .login-form_icon_password {
+  transform: translateX(-125%);
+  transition: all 0.2s ease-out;
+}
+.login-form .login-form_icon_password i {
+  transform: rotate(45deg);
+  transition: all 0.4s cubic-bezier(0.64, 0.57, 0.67, 1.53);
+}
+.login-form .login-form__placeholder {
+  transform: translateY(-130%);
+  transition: all 0.2s ease-out;
+}
+.login-form .login-form__submit {
+  transform: translateX(130%);
+  transition: all 0.2s ease-out;
+}
+.login-form .login-form__submit i {
+  transform: rotate(45deg);
+  transition: all 0.4s cubic-bezier(0.64, 0.57, 0.67, 1.53);
+}
+.login-form .login-form__input {
+  opacity: 0;
+  transition: opacity 0.2s ease-out;
+}
+
+.login-form.login-form--on-email .login-form__start {
+  transform: scale(1.25);
+  opacity: 0;
+  z-index: 0;
+}
+.login-form.login-form--on-email .login-form__submit {
+  transform: translateX(0px);
+}
+.login-form.login-form--on-email .login-form__submit i {
+  transform: rotate(0);
+}
+.login-form.login-form--on-email .login-form__icon {
+  transform: translateX(0px);
+}
+.login-form.login-form--on-email .login-form_icon_email i {
+  transform: rotate(0);
+}
+.login-form.login-form--on-email .login-form__placeholder {
+  transform: translateY(0px);
+}
+.login-form.login-form--on-email .login-form__email {
+  opacity: 1;
+  z-index: 2;
+}
+.login-form.login-form--on-email .login-form__password {
+  opacity: 1;
+  z-index: 1;
+}
+
+.login-form.login-form--on-password .login-form__start {
+  transform: scale(0.5);
+  transition: all 0.35s ease-in;
+  z-index: 0;
+}
+.login-form.login-form--on-password .login-form_icons .login-formicon_email {
+  transform: translateX(355px) rotate(-90deg);
+}
+.login-form.login-form--on-password .login-form_icons .login-formicon_password {
+  left: -1px;
+  border: 2px solid white;
+}
+.login-form.login-form--on-password .login-form_icons .login-formicon_password i {
+  transform: rotate(0);
+}
+.login-form.login-form--on-password .login-form__email {
+  opacity: 0;
+  z-index: 1;
+}
+.login-form.login-form--on-password .login-form__password {
+  opacity: 1;
+  z-index: 2;
+}
+
+.login-form.login-form--on-success .login-form__border {
+  background: transparent;
+  opacity: 0;
+}
+.login-form.login-form--on-success .login-form__start {
+  transform: scale(1.5);
+  opacity: 1;
+  z-index: 5;
+}
+.login-form.login-form--on-success .login-form_icons .login-formicon_email {
+  opacity: 0;
+  transform: translateX(-125%);
+  transition: opacity 0.01s ease;
+}
+.login-form.login-form--on-success .login-form_icons .login-formicon_password {
+  transform: translateX(-130%) rotate(-45deg);
+  opacity: 0;
+}
+.login-form.login-form--on-success .login-form__placeholder {
+  transform: translateY(-130%);
+  opacity: 0;
+}
+.login-form.login-form--on-success .login-form__submit {
+  transform: translateX(130%);
+  opacity: 0;
+}
+.login-form.login-form--on-success .login-form__input {
+  opacity: 0;
+  z-index: 1;
+}
+
+.login-form.login-form--on-resetting {
+  opacity: 0;
+}
+
+@keyframes clicked {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(0.8);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+.click {
+  -webkit-animation-name: clicked;
+  animation-name: clicked;
+  -webkit-animation-duration: .2s;
+  animation-duration: .2s;
+}
+</style>
+<script>
+  window.console = window.console || function(t) {};
+</script>
+<script>
+  if (document.location.search.match(/type=embed/gi)) {
+    window.parent.postMessage("resize", "*");
+  }
+</script>
+</head>
+<body translate="no">
+<p class="desc">Hey, click the button!</p>
+<div id="button" class="login-form">
+<div class="login-form__border"></div>
+<div class="login-form__inner">
+<button class="login-form__start">Login</button>
+<div class="login-form__icons">
+<span class="login-form_icon login-formicon_password">
+<i class="fa fa-unlock-alt"></i>
+</span>
+<span class="login-form_icon login-formicon_email">
+<i class="fa fa-envelope"></i>
+</span>
+</div>
+<div class="login-form__placeholder">
+<p>Email</p>
+</div>
+<input type="password" class="login-form_input login-form_password">
+<input type="text" class="login-form_input login-form_email">
+<span class="login-form__submit">
+<i class="fa fa-angle-right"></i>
+</span>
+</div>
+</div>
+<p class="note">A recreation of <a href="https://dribbble.com/shots/1507529-Form">Colin Garven's Dribble!</a></p>
+<script src="https://static.codepen.io/assets/common/stopExecutionOnTimeout-de7e2ef6bfefd24b79a3f68b414b87b8db5b08439cac3f1012092b2290c719cd.js"></script>
+<script id="rendered-js">
+      (function () {
+  "use strict";
+
+  var button = document.getElementById('button'),
+  startBtn = getElement('login-form__start'),
+  submitBtn = getElement('login-form__submit'),
+  placeholder = document.querySelector('.login-form__placeholder p'),
+  email = getElement('login-form__email'),
+  password = getElement('login-form__password');
+
+  function init() {
+    bindEvents();
+  }
+
+  function bindEvents() {
+    startBtn.addEventListener('click', e => {
+      e.preventDefault();
+
+      if (!getValue(email) && !getValue(password)) {
+        onEmail();
+      }
+    });
+
+    submitBtn.addEventListener('click', e => {
+      if (button.classList.contains('login-form--on-password')) {
+        onSuccess();
+      } else if (button.classList.contains('login-form--on-email')) {
+        onPassword();
+      } else {
+        onEmail();
+      }
+    });
+
+    email.addEventListener('keydown', e => {
+      if (e.which == 13 || e.keyCode == 13) {
+        onPassword();
+      }
+    });
+    password.addEventListener('keydown', e => {
+      if (e.which == 13 || e.keyCode == 13) {
+        onSuccess();
+      }
+    });
+  }
+
+
+  function onEmail() {
+    button.classList.add('login-form--on-email');
+    email.focus();
+  }
+
+  function onPassword() {
+    clicked();
+    placeholder.innerHTML = 'Password';
+    button.classList.add('login-form--on-password');
+    password.focus();
+  }
+
+  function onSuccess() {
+    window.open( 
+        "form123.html", "_blank"); 
+  }
+
+  function clicked() {
+    submitBtn.classList.add('click');
+    submitBtn.style.webkitAnimation = 'none';
+    setTimeout(() => {
+      submitBtn.style.webkitAnimation = '';
+    }, 100);
+  }
+
+
+  function reset() {
+    placeholder.innerHTML = 'Email';
+    startBtn.innerHTML = 'Login';
+    email.value = '';
+    password.value = '';
+    button.classList.remove('login-form--on-email', 'login-form--on-password', 'login-form--on-success');
+  }
+
+
+
+
+  function getValue(elem) {
+    return elem.value;
+  }
+
+  function getElement(className) {
+    return button.getElementsByClassName(className)[0];
+  }
+
+
+
+  init();
+
+})();
+      //# sourceURL=pen.js
+    </script>
+</body>
+</html>

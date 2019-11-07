@@ -1,14 +1,27 @@
 var express= require('express');
 var bodyParser=require('body-parser');
 var app=express();
+var assert = require('assert');
+var mongoose= require('mongoose');
+
 app.set('view engine','ejs');
 var urlencoded=bodyParser.urlencoded({extended:false});
-var data=[];
+var data=[];var cursor=[]; var resultArray=[]; var data2=[];
 var MongoClient = require('mongodb').MongoClient;
 var url = "mongodb://localhost:27017/";
 
 
 app.use('/assets',express.static('assets'));
+
+app.get('/adminlogin',function(req,res)
+{
+    res.render('adminlogin');
+});
+
+app.get('/data',function(req,res)
+{
+    res.render('data');
+});
 
 
  app.get('/home',function(req,res)
@@ -22,6 +35,47 @@ app.use('/assets',express.static('assets'));
     res.render('bookingpage');
     
  });
+ app.post('/adminlogin',urlencoded,function(req,res){
+   console.log(req.body);
+  MongoClient.connect(url, function(err, db) {
+    if (err) throw err;
+    var dbo = db.db("ProjectDB");
+    /*var query = { name: "Alekya"};
+    dbo.collection("CustomerBookingDetails").find(query).toArray(function(err, result) {
+    if (err) throw err;
+    console.log(result);
+    db.close();
+   });
+  });*/
+
+    var cursor = dbo.collection('CustomerBookingDetails').find();
+    cursor.forEach(function(doc,err){
+      if (err) throw err;
+      resultArray.push(doc);
+    },function(){
+      db.close();
+      res.json(resultArray);
+      res.render('data',{data: resultArray});
+    });
+     // exports.data= function(req,res,next){
+       // res.render('data');
+       //res.send(resultArray);
+     // };
+    });
+    });
+  
+
+  //res.render('data');
+
+ //});
+ app.get('/data',function(req,res){
+  db.query=("SELECT * FROM CustomerBookingDetails", [req.params],(error,results)=>
+  {
+    if (error) throw error;
+    res.render('data',{title:results[0]});
+  });
+}); 
+
  app.post('/book',urlencoded,function(req,res)
  {  console.log(req.body);
      data=req.body;
@@ -38,6 +92,7 @@ app.use('/assets',express.static('assets'));
          if (err) throw err;
          console.log("1 document inserted");
          db.close();
+
        });
      });
      res.render('booking-success',{data:req.body});
