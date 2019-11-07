@@ -33,48 +33,37 @@ app.get('/data',function(req,res)
  app.get('/book',function(req,res)
  {
     res.render('bookingpage');
-    
+
  });
  app.post('/adminlogin',urlencoded,function(req,res){
    console.log(req.body);
   MongoClient.connect(url, function(err, db) {
     if (err) throw err;
     var dbo = db.db("ProjectDB");
-    /*var query = { name: "Alekya"};
-    dbo.collection("CustomerBookingDetails").find(query).toArray(function(err, result) {
-    if (err) throw err;
-    console.log(result);
-    db.close();
-   });
-  });*/
-
-    var cursor = dbo.collection('CustomerBookingDetails').find();
-    cursor.forEach(function(doc,err){
+    dbo.collection("CustomerBookingDetails").find().toArray(function(err,
+      result) {
       if (err) throw err;
-      resultArray.push(doc);
-    },function(){
-      db.close();
-      res.json(resultArray);
-      res.render('data',{data: resultArray});
+      data.push(result);
+      console.log(result);
+
+     res.render('data',{data:result});
+      db.close(); });;
+      });console.log("kkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkk");
+      console.log("data is"+data);
+
+
+
     });
-     // exports.data= function(req,res,next){
-       // res.render('data');
-       //res.send(resultArray);
-     // };
-    });
-    });
-  
+
 
   //res.render('data');
 
  //});
  app.get('/data',function(req,res){
-  db.query=("SELECT * FROM CustomerBookingDetails", [req.params],(error,results)=>
-  {
-    if (error) throw error;
-    res.render('data',{title:results[0]});
+
+    res.render('data');
   });
-}); 
+
 
  app.post('/book',urlencoded,function(req,res)
  {  console.log(req.body);
